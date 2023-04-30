@@ -4,49 +4,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'auth_service.dart';
 import 'package:http/http.dart' as http;
 
+import 'firebase_options.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await checkSystem();
-  runApp(AuthService().handleAuthState());
-}
-
-Future<void> checkSystem() async {
-  if (defaultTargetPlatform == TargetPlatform.android) {
-    await Firebase.initializeApp(
-      options: const FirebaseOptions(
-        apiKey: 'AIzaSyAKsAaz-dMfAldT6JI0UMfPbjd-Tq4yeEQ',
-        appId: '1:893826836090:android:5f4b107c2e4d6b14d1fdc3',
-        messagingSenderId: '893826836090',
-        projectId: 'testing-aa21c',
-        storageBucket: 'testing-aa21c.appspot.com',
-      ),
-    );
-  } else if (defaultTargetPlatform == TargetPlatform.iOS) {
-    await Firebase.initializeApp(
-      options: const FirebaseOptions(
-        apiKey: 'AIzaSyCHfe2CPWVcygUVFFWUHHE_TIdsR13JVas',
-        appId: '1:893826836090:ios:b8867481f446db72d1fdc3',
-        messagingSenderId: '893826836090',
-        projectId: 'testing-aa21c',
-        storageBucket: 'testing-aa21c.appspot.com',
-        iosClientId:
-            '893826836090-a69on9bb2ls0etrrviui6n2kfva52tft.apps.googleusercontent.com',
-        iosBundleId: 'com.example.loginApp',
-      ),
-    );
-  } else {
-    await Firebase.initializeApp(
-      options: const FirebaseOptions(
-        apiKey: "AIzaSyCR3KdL9YRC6xsj_uUclTP450WwqXxRhV4",
-        authDomain: "testing-aa21c.firebaseapp.com",
-        projectId: "testing-aa21c",
-        storageBucket: "testing-aa21c.appspot.com",
-        messagingSenderId: "893826836090",
-        appId: "1:893826836090:web:5b6258d1ce2a3cf2d1fdc3",
-        measurementId: "G-ZKMC5YK94D",
-      ),
-    );
-  }
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+    runApp(AuthService().handleAuthState());
 }
 
 class MyApp extends StatelessWidget {

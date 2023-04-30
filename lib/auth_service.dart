@@ -48,7 +48,11 @@ class AuthService {
   }
 
   signOut() async {
-    await GoogleSignIn().signOut();
+    if (defaultTargetPlatform == TargetPlatform.android ||
+        defaultTargetPlatform == TargetPlatform.iOS) {
+      await GoogleSignIn().signOut();
+
+    }
     await FirebaseAuth.instance.signOut();
   }
 }
