@@ -57,6 +57,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  doc_widget:
+    dependency: "direct main"
+    description:
+      name: doc_widget
+      sha256: f8a3138deb225b77b44c2e0d366ad350462c70aaec69bcbc24a5f7a3c84bd26d
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.4.0"
+  doc_widget_annotation:
+    dependency: transitive
+    description:
+      name: doc_widget_annotation
+      sha256: "170b7752d64587542e71abe230c7d62fba59d62296ba4aee4e2c2004bb343642"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.8"
   fake_async:
     dependency: transitive
     description:
@@ -118,6 +134,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_highlight:
+    dependency: transitive
+    description:
+      name: flutter_highlight
+      sha256: "7b96333867aa07e122e245c033b8ad622e4e3a42a1a2372cbb098a2541d8782c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.7.0"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -184,6 +208,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.11.0+1"
+  highlight:
+    dependency: transitive
+    description:
+      name: highlight
+      sha256: "5353a83ffe3e3eca7df0abfb72dcf3fa66cc56b953728e7113ad4ad88497cf21"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.7.0"
   http:
     dependency: "direct main"
     description:
