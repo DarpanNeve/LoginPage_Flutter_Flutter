@@ -1,103 +1,56 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:seo_renderer/helpers/renderer_state.dart';
+import 'package:seo_renderer/helpers/robot_detector_web.dart';
 import 'auth_service.dart';
-import 'package:http/http.dart' as http;
-
 import 'firebase_options.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-    runApp(AuthService().handleAuthState());
+  runApp(
+    RobotDetector(
+      debug: true, // you can set true to enable robot mode
+      child: MaterialApp(
+        home: MyApp(),
+        navigatorObservers: [seoRouteObserver],
+      ),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      title: "Flutter Demo App",
+      
       home: Scaffold(
         body: Center(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
-              SizedBox(
+            children:[
+              const SizedBox(
                 width: 200,
-                child:
-                    Image(image: AssetImage('assets/images/collegelogo.png')),
+                child: Icon(Icons.account_circle,size: 200),
               ),
-              SizedBox(
-                height: 50,
-              ),
-              SignIn(),
-              fetchData(),
+              const Text("Data"),
+              ElevatedButton(
+                onPressed: () async {
+                  AuthService().signInWithGoogle();
+                },
+                child: const Text(
+                  "Login",
+                  style: TextStyle(color: Colors.black),
+                ),
+              )
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class fetchData extends StatefulWidget {
-  const fetchData({Key? key}) : super(key: key);
-
-  @override
-  State<fetchData> createState() => _fetchDataState();
-}
-
-class _fetchDataState extends State<fetchData> {
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-        onTap:(){
-          request();
-        },
-        child:
-            const ElevatedButton(onPressed: null, child: Text("print data")));
-  }
-
-  request() async {
-
-    final response = await http.get(
-      Uri.parse('http://117.198.136.16/fetch_Data1.php'),
-    );
-
-    if (response.statusCode == 200) {
-      // Request was successful
-      print('Response body: ${response.body}');
-    } else {
-      // Request failed
-      print('Request failed with status: ${response.statusCode}');
-    }
-  }
-}
-
-class SignIn extends StatefulWidget {
-  const SignIn({Key? key}) : super(key: key);
-
-  @override
-  State<SignIn> createState() => _SignInState();
-}
-
-class _SignInState extends State<SignIn> {
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        AuthService().signInWithGoogle();
-      },
-      child: const ElevatedButton(
-        onPressed: null,
-        child: Text("Data"),
       ),
     );
   }

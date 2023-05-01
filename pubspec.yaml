@@ -42,6 +42,7 @@ dependencies:
   firebase_auth_web: ^5.2.8
   http: ^0.13.5
   doc_widget: ^0.4.0
+  seo_renderer: ^0.6.0
 
 dev_dependencies:
   flutter_test:

@@ -49,6 +49,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '893826836090',
     projectId: 'testing-aa21c',
     authDomain: 'testing-aa21c.firebaseapp.com',
+    databaseURL: 'https://testing-aa21c-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'testing-aa21c.appspot.com',
     measurementId: 'G-ZKMC5YK94D',
   );
@@ -58,6 +59,7 @@ class DefaultFirebaseOptions {
     appId: '1:893826836090:android:5f4b107c2e4d6b14d1fdc3',
     messagingSenderId: '893826836090',
     projectId: 'testing-aa21c',
+    databaseURL: 'https://testing-aa21c-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'testing-aa21c.appspot.com',
   );
 
@@ -66,7 +68,9 @@ class DefaultFirebaseOptions {
     appId: '1:893826836090:ios:b8867481f446db72d1fdc3',
     messagingSenderId: '893826836090',
     projectId: 'testing-aa21c',
+    databaseURL: 'https://testing-aa21c-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'testing-aa21c.appspot.com',
+    androidClientId: '893826836090-0rrm1thltaaiqk9i476l6pm96mff7mjc.apps.googleusercontent.com',
     iosClientId: '893826836090-a69on9bb2ls0etrrviui6n2kfva52tft.apps.googleusercontent.com',
     iosBundleId: 'com.example.loginApp',
   );
@@ -76,7 +80,9 @@ class DefaultFirebaseOptions {
     appId: '1:893826836090:ios:b8867481f446db72d1fdc3',
     messagingSenderId: '893826836090',
     projectId: 'testing-aa21c',
+    databaseURL: 'https://testing-aa21c-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'testing-aa21c.appspot.com',
+    androidClientId: '893826836090-0rrm1thltaaiqk9i476l6pm96mff7mjc.apps.googleusercontent.com',
     iosClientId: '893826836090-a69on9bb2ls0etrrviui6n2kfva52tft.apps.googleusercontent.com',
     iosBundleId: 'com.example.loginApp',
   );

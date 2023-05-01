@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'auth_service.dart';
-import 'main.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -11,29 +10,20 @@ class ProfilePage extends StatelessWidget {
       home: Scaffold(
         body: Center(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
-            children:  const <Widget>[
-              Text("data"),
-              Signoutbutton  (),
+            children: <Widget>[
+              const Text("data"),
+              ElevatedButton(
+                onPressed: () {
+                  AuthService().signOut();
+                },
+                child: const Text("SignOut"),
+              ),
             ],
           ),
         ),
       ),
     );
   }
-}
-class Signoutbutton extends StatelessWidget{
-  const Signoutbutton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-  return ElevatedButton(onPressed: () {
-      AuthService().signOut();
-  },
-    child: const Text("Logout"),
-
-  );
-  }
-
 }
