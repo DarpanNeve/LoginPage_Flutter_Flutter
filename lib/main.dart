@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:seo_renderer/helpers/renderer_state.dart';
-import 'package:seo_renderer/helpers/robot_detector_web.dart';
 import 'auth_service.dart';
 import 'firebase_options.dart';
 
@@ -11,13 +9,7 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(
-    RobotDetector(
-      debug: true, // you can set true to enable robot mode
-      child: MaterialApp(
-        home: MyApp(),
-        navigatorObservers: [seoRouteObserver],
-      ),
-    ),
+        AuthService().handleAuthState(),
   );
 }
 
