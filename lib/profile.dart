@@ -8,6 +8,12 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(
+          title: const Text("Profile"),
+          actions: [
+            ElevatedButton(onPressed: AuthService().signOut(), child: const Icon(Icons.logout))
+          ],
+        ),
         body: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
