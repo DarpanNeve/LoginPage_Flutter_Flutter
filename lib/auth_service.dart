@@ -6,15 +6,13 @@ import 'main.dart';
 import 'profile.dart';
 
 class AuthService {
-  handleAuthState() {
+  StreamBuilder<User?>handleAuthState() {
     return StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (BuildContext context, AsyncSnapshot<User?> snapshot) {
           if (snapshot.hasData) {
-            print("Data has changed");
-            return const ProfilePage();
+            return  ProfilePage();
           } else {
-            print("Data has not changed");
             return const MyApp();
           }
         });
@@ -28,7 +26,8 @@ class AuthService {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
       // Obtain the auth details from the request
-      final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser?.authentication;
 
       // Create a new credential
       final credential = GoogleAuthProvider.credential(
@@ -52,8 +51,9 @@ class AuthService {
     if (defaultTargetPlatform == TargetPlatform.android ||
         defaultTargetPlatform == TargetPlatform.iOS) {
       await GoogleSignIn().signOut();
-
     }
     await FirebaseAuth.instance.signOut();
   }
+
+  customSignIn() async {}
 }
